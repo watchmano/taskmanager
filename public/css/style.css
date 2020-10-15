@@ -283,7 +283,7 @@ div.avatar {
 }
 
 div.avatar p {
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .tab { margin-left: 10px; }

@@ -9,7 +9,7 @@
       {{#if user.imageString}}
       <img class="avatar" src="data:image/png;base64,{{user.imageString}}"/>
       {{/if}}
-      <div class="avatar"><p style="margin-bottom: -16px">NAME: {{user.name}}<p><p>E-MAIL:  {{user.email}}</p><p>AGE:  {{user.age}}</p><p>PASSWORD: It's securely encrypted.</p></div>
+      <div class="avatar"><p>NAME: {{user.name}}</p><p>E-MAIL:  {{user.email}}</p><p>AGE:  {{user.age}}</p><p>PASSWORD: It's securely encrypted.</p></div>
       <div class="helper"></div>
       <div class="profile"><a href="/users/me/update/others" class="btn btn-reverse">edit</a><a href="/users/me/update/password" class="btn btn-reverse">change password</a><a href="/users/me/avatar" class="btn btn-reverse">upload picture</a><a href="/users/me/avatar/delete" class="btn btn-reverse">delete picture</a><a href="/users/me/delete" class="btn btn-reverse">delete user account</a></div></div>
   </div>
