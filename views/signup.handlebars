@@ -1,0 +1,31 @@
+<section id="login" class="container">
+    <div class="form-wrap">
+      
+      {{#if user}}
+      <h1>Edit User Info</h1>
+      <p>Don't forget your new password</p>
+      <form action="/users/me/update" method="POST">
+      {{else}}
+      <h1>Sign Up Form</h1>
+      <p>Don't forget your password</p>
+      <form action="/users" method="POST">
+      {{/if}}
+        <div class="input-group" id="login">
+          <label for="name">Your Name</label>
+          <input type="text" name="name" id="name" class="input-box" placeholder="eg. mark"
+            maxlength="100" value={{user.name}}>
+        </div><div class="input-group">
+          <label for="email">Your Email</label>
+          <input type="text" name="email" id="email" class="input-box" placeholder="eg. mark@yourhost.com"
+            maxlength="100" value={{user.email}}>
+        </div><div class="input-group" id="login">
+          <label for="age">Your Age (Optional)</label>
+          <input type="text" name="age" id="age" class="input-box" placeholder="positive number...plz"
+            maxlength="100" value={{user.age}}>
+        </div><div class="input-group">{{#unless user}}
+          <label for="password">Your Password</label>
+          <input type="text" name="password" id="password" class="input-box" placeholder="" maxlength="100" value="">
+        </div><input type="submit" value="Let's sign-up" class="btn btn-reverse">{{else}}<input type="submit" value="Edit completed" class="btn btn-reverse">{{/unless}}
+      </form>
+        
+  </section>

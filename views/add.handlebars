@@ -1,0 +1,32 @@
+<section id="add" class="container">
+    <div class="form-wrap">
+      
+      
+      
+      {{#each errors}}
+        <div class="error">
+          <p>{{text}}</p>
+        </div>
+      {{/each}}
+      {{#if task}}
+      <h1>Edit Task</h1>
+      <form action="/tasks/edit" method="POST">
+      {{else}}
+      <h1>Add Task</h1>
+      <p>The initial status will be 'not completed'</p>
+      <form action="/tasks" method="POST">
+      {{/if}}
+      
+        <div class="input-group">
+          <label for="description">Task Description</label>
+          <input type="text" name="description" id="description" class="input-box" placeholder="eg. learning graphQL"
+            maxlength="100" value={{task.description}}>
+        </div>
+        <div class="input-group">
+          <label for="details">Task Details</label>
+          <textarea name="details" id="details" class="input-box" placeholder="eg. graphQL + Prisma + Node.js + anyDB = awesome"
+            rows="10">{{task.details}}</textarea>
+        </div>{{#if task}}<input type = "hidden" name = "_id" value = {{task._id}}><input type="submit" value="Edit Completed" class="btn btn-reverse">{{else}}<input type = "hidden" name = "_id" value = {{task._id}}><input type="submit" value="Add to the list" class="btn btn-reverse">{{/if}}
+      </form>
+    </div>
+  </section>

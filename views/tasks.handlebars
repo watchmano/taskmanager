@@ -1,0 +1,34 @@
+<section id="gigs" class="container">
+  {{#if results}}
+    <h1>Here is your list of tasks lol.</h1>
+    <p>{{#if results.pagination}}Page: {{/if}}
+    {{#if results.pagination.prevPage}}<a class="btn btn-reverse" href="/tasks/{{results.pagination.prevSkip}}/{{results.completed}}">{{results.pagination.prevPage}}</a>
+    {{/if}}
+    {{#if results.pagination.nextPage}}
+    <a class="btn btn-reverse" href="/tasks/{{results.pagination.nextSkip}}/{{results.completed}}">{{results.pagination.nextPage}}</a>
+    {{/if}}
+    ,  Counts:  {{results.counts}}<a class="btn btn-reverse" href="/tasks/0/true">completed</a><a class="btn btn-reverse" href="/tasks/0/false">not completed</a></p>
+    
+    {{#each results.tasks}}
+    <div class="gig">
+      <h3>{{description}}</h3>
+      <p>{{details}}</p>
+      <small>COMPLETED:   <span>{{completed}}</span></small>
+      
+     <ul>
+        <li class="edit"><form action="/tasks/edit" method="POST"><input type = "hidden" name = "_id" value = {{_id}}><input type = "hidden" name = "select" value = "contents"><input type="submit" value="edit" class="btn btn-reverse">
+    </form></li>
+        <li class="edit"><form action="/tasks/edit" method="POST"><input type = "hidden" name = "_id" value = {{_id}}><input type = "hidden" name = "completed" value = {{completed}}>
+      <input type="submit" value="toggle status" class="btn btn-reverse">
+    </form></li><li class="edit"><form action="/tasks/delete" method="POST"><input type = "hidden" name = "_id" value = {{_id}}>
+      <input type="submit" value="delete" class="btn btn-reverse">
+    </form></li>
+      </ul>
+    </div>
+{{/each}}
+{{else}}
+    <p>You don't have any tasks listed yet.</p>
+{{/if}}
+    
+    
+  </section>

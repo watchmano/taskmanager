@@ -1,0 +1,16 @@
+
+<section id="login" class="container">
+    <div class="form-wrap">
+      <form action="/users/login" method="POST">
+        <div class="input-group" id="login">
+          <label for="email">E-MAIL</label>
+          <input type="text" name="email" id="email" class="input-box" placeholder="eg. mark@yourhost.com"
+            maxlength="100" value={{task.description}}>
+        </div><div class="input-group">
+          <label for="password">PASSWORD</label>
+          <input type="text" name="password" id="password" class="input-box" placeholder=""
+            maxlength="100" value={{task.description}}>
+        </div><input type = "hidden" name = "_id" value = {{task._id}}><input type="submit" value="LOGIN" class="btn btn-reverse">
+      </form>
+        
+  </section>

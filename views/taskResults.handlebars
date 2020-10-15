@@ -1,0 +1,21 @@
+<section id="gigs" class="container">
+  
+    {{#if task}}
+    <p>Your task info has been saved.</p>
+    <div class="gig">
+      <h3>{{task.description}}</h3>
+      <p>{{task.details}}</p>
+      <small>COMPLETED:   <span>{{task.completed}}</span></small>
+    <ul>
+        <li class="edit"><form action="/tasks/edit" method="POST"><input type = "hidden" name = "_id" value = {{task._id}}><input type = "hidden" name = "select" value = "contents"><input type="submit" value="edit" class="btn btn-reverse">
+    </form></li><li class="edit"><form action="/tasks/edit" method="POST"><input type = "hidden" name = "_id" value = {{task._id}}><input type = "hidden" name = "completed" value = {{task.completed}}>
+      <input type="submit" value="toggle status" class="btn btn-reverse">
+    </form></li>
+        <li class="edit"><form action="/tasks/delete" method="POST"><input type = "hidden" name = "_id" value = {{task._id}}>
+      <input type="submit" value="delete" class="btn btn-reverse">
+    </form></li>
+      </ul></div>
+    {{else}}
+    <p>Your task has been deleted.</p>
+    {{/if}}
+</section>
