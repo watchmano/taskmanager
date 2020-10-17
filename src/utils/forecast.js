@@ -7,7 +7,6 @@ const forecast  = (a, b, callback) => {
     
     
 
-    //key 값 이름 바꾸지 말자. url 외의 다른 이름 넣어주면 작동 안됨.
     request({url, json: true}, (error, {body}) => {
         
         if(error){
